@@ -1,0 +1,31 @@
+{% extends 'website/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <p class="text-center">
+        <a href="" class="btn btn-info">Back to settings</a>
+        <a href="" class="btn btn-primary">Add Skills</a>
+        <a href="" class="btn btn-warning" target="_blank">View website</a>
+    </p>
+    {% if skills %}
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            {% for skill in skills %}
+                <tr>
+                    <td>{{ skill.title }}</td>
+                    <td class="text-center sptext">
+                        <a href="{% url 'skill-update' skill.id %}" class="btn btn-warning btn-sm">Update</a>
+                        <a href="#"" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+    <h2 class="text-center">Please Add some skills</h2>
+        <a href="{% url 'skill-create' %}" class="btn btn-success mx-auto">Add Skill</a>
+        
+    {% endif %}
+{% endblock content %}

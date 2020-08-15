@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="John Doe" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jhhemal.github.io/simple-portfolio/" />
+    <meta property="og:image:url" content="https://jhhemal.github.io/simple-portfolio/images/demo.png" />
+    <meta property="og:description" content="The portfolio of John Doe, a BD-Korean Web Designer based in Seoul, South Korea." />
+    <meta name="description" content="The portfolio of John Doe, a BD-Korean Web Designer based in Seoul, South Korea." />
+	<meta name="keywords" content="john, doe, john doe, web design, web application development, websites, python, django, flask, full stack python developer, freelance, developer" />
+    <title>{{ user.first_name }} {{ user.last_name }}</title>
+    <link rel="stylesheet" href="{% static 'website/css/bootstrap.css' %}">
+    <link rel="shortcut icon" href="/media/images/template1/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+
+    <!-- <header>
+        <nav>
+          
+        </nav>
+    </header> -->
+    
+    <main class="container">
+        <div class="row w-75 mx-auto mt-5 p-2">
+            <h1 class="mx-auto sph3 mt-2"><span class="text-warning">Hello</span>, My name is <span class="kds">{{ user.first_name }} {{ user.last_name }}</span></h1>
+            <h3 class="ml-auto spt mt-1"><span class="kds">-</span><span class="sph3">-</span>
+                {% if user.website.title %}
+                    {{ user.website.title }}
+                {% else %}
+                    Full Stack Python and Django Developer
+                {% endif %}
+                
+            </h3>
+        </div>
+        <hr>
+        <div class="row spbg pt-3">
+            <div class="col-md-4 my-auto">
+                <p class="text-center">
+                    <img src="{{ user.image.url }}" alt="John Doe" width="80%" height="280px" class="img-thumbnail" title="John Doe">
+                </p>
+            </div>
+            <div class="col-md-8">
+                <h2 class="mt-2 sph2"> Who am I?</h2>
+                <hr>
+                <p class="sptext">
+                    {% if user.website.bio %}
+                        {{ user.website.bio }}
+                    {% else %}
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias tempora, pariatur ea illum aliquid, molestiae hic optio nisi eos illo soluta dolore libero quo inventore animi enim molestias sed fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum consequuntur totam laborum, quos harum voluptas ut aliquam? Blanditiis quam, nam repellat reprehenderit unde quis magni, maiores pariatur incidunt quasi repellendus?<span class="text-danger">Please Update your Bio from settings</span>
+                    {% endif %}
+                </p>
+                {% if user.website.badge_set %}
+                    {% for badge in user.website.badge_set.all %}
+                        <span class="badge badge-pill badge-warning">{{ badge.title }}</span>
+                    {% endfor %}
+                {% else %}
+                {% endif %}
+                <span class="badge badge-pill badge-warning">You</span>
+                <span class="badge badge-pill badge-warning">Need to</span>
+                <span class="badge badge-pill badge-warning">Add some</span>
+                <span class="badge badge-pill badge-warning">Badges</span>
+                <span class="badge badge-pill badge-warning">From settings</span>
+                <hr>
+                <p class="text-center">
+                    <a href="http://facebook.com/{{ user.website.facebook }}">
+                        <img src="/media/images/template1/facebook.png" alt="" height="32px" width="32px" class="mr-1">
+                    </a> 
+                    <a href="http://twitter.com/{{ user.website.twitter }}">
+                        <img src="/media/images/template1/twitter.png" alt="" height="32px" width="32px" class="mr-1">
+                    </a> 
+                    <a href="http://linkedin.com/{{ user.website.linkedin }}">
+                        <img src="/media/images/template1/linkedin.png" alt="" height="32px" width="32px" class="mr-1">
+                    </a> 
+                    <a href="http://github.com/{{ user.website.github }}">
+                        <img src="/media/images/template1/github.png" alt="" height="32px" width="32px" class="mr-1">
+                    </a> 
+                    <a href="http://instagram.com/{{ user.website.instagram }}">
+                        <img src="/media/images/template1/instagram.png" alt="" height="32px" width="32px" class="mr-1">
+                    </a>    
+                </p>
+            </div>
+        </div>
+        <hr>
+        <div class="row my-2 justify-content-between">
+            <div class="col-md-6 mb-3">
+                <div class="spbg mr-1 p-3">
+                    <h3 class="sph2">My skills</h3>
+                    <hr>
+                    {% if user.website.skill_set.all %}
+                        <ul class="sptext">
+                            {% for skill in user.website.skill_set.all %}
+                                <li>{{ skill.title }}</li>
+                            {% endfor %}  
+                        </ul>
+                    {% else %}
+                        <p class="text-center text-danger">Please Add Some Skills</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="spbg ml-1 p-3">
+                    <h3 class="sph2">Interests</h3>
+                    <hr>
+                    {% if user.website.interest_set.all %}
+                        <ul class="sptext">
+                            {% for interest in user.website.interest_set.all %}
+                                <li>{{ interest.title }}</li>
+                            {% endfor %}  
+                        </ul>
+                    {% else %}
+                        <p class="text-center text-danger">Please Add Some Interests</p>
+                    {% endif %}
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="row my-2 justify-content-between">
+            <div class="col-md-6 mb-3">
+                <div class="spbg mr-1 p-3">
+                    <h3 class="sph2">Contact Details</h3>
+                    <hr>
+                    <div class="row sptext px-5">
+                        <p  class="mr-auto kds"><strong>Mobile No:</strong></p>
+                        <p  class="ml-auto">{{ user.mobile_no }}</p>
+                    </div>
+                    <div class="row sptext px-5">
+                        <p  class="mr-auto kds"><strong>Email:</strong></p>
+                        <p  class="ml-auto">{{ user.email }}</p>
+                    </div>
+                    <div class="row sptext px-5">
+                        <p  class="mr-auto kds"><strong>Date of birth:</strong></p>
+                        <p  class="ml-auto">{{ user.dob }}</p>
+                    </div>
+                    <div class="row sptext px-5">
+                        <p  class="mr-auto kds"><strong>Location:</strong></p>
+                        <p  class="ml-auto">{{ user.location }}</p>
+                    </div>
+                    <div class="row my-1">
+                        <a href="{{ user.website.cv_link }}" class="btn spbtn mx-auto">Download CV</a>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="spbg ml-1 p-3">
+                    <h3 class="sph2">Education</h3>
+                    <hr>
+                    {% if user.website.education_set.all %}
+                        <ul class="sptext">
+                            {% for skill in user.website.education_set.all %}
+                                <li>{{ education.name }}({{ education.yrfrom }}-{{ education.yrto }})</li>
+                            {% endfor %}  
+                        </ul>
+                    {% else %}
+                        <p class="text-center text-danger">Please Add Education from settings</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+    </main>
+
+    <footer class="footer-bg text-center sptext">
+        <p class="sph2">
+            Designed by <a href="http://jhhemal.com" target="_blank">Jahidul Hasan Hemal</a>| Developed by <a href="#">Xebecware</a>
+        </p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

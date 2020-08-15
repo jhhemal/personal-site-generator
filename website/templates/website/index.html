@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Personal Template Maker" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jhhemal.github.io/simple-portfolio/" />
+    <meta property="og:image:url" content="https://jhhemal.github.io/simple-portfolio/images/demo.png" />
+    <meta property="og:description" content="Personal Template maker is a django tolls that help you to create your template from some awesome simple bootstrap template." />
+    <meta name="description" content="The portfolio of John Doe, a BD-Korean Web Designer based in Seoul, South Korea." />
+	<meta name="keywords" content="john, doe, john doe, web design, web application development, websites, python, django, flask, full stack python developer, freelance, developer" />
+    <title>Personal Template Maker</title>
+    <link rel="stylesheet" href="{% static 'website/css/bootstrap.css' %}">
+    <link rel="shortcut icon" href="/media/images/template1/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+
+    <!-- <header>
+        <nav>
+          
+        </nav>
+    </header> -->
+    
+    <main class="container">
+        <div class="vh-100 d-flex justify-content-center align-items-center">
+            <div class="col p-5">
+                <h1 class="text-center sph2" style="font-size: 50px;">Personal Template Maker</h1><br>
+                <div class="mx-auto text-center">
+                    <h1 class="sph3">
+                        <a class="mr-2" href="{% url 'register' %}">Register now</a>
+                        <span class="kds"><a class="ml-2" href="{% url 'login' %}">Login</a></span>
+                    </h1>
+                </div>
+                
+                <hr>
+                <h4 class="sptext text-center">
+                    Designed and Developed by <a href="" class="text-danger"><img src="/media/images/logo.png" height="20px" alt="Xebecware">
+                    </a>
+                </h4>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

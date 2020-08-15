@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Personal Template Maker" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jhhemal.github.io/simple-portfolio/" />
+    <meta property="og:image:url" content="https://jhhemal.github.io/simple-portfolio/images/demo.png" />
+    <meta property="og:description" content="Personal Template maker is a django tolls that help you to create your template from some awesome simple bootstrap template." />
+    <meta name="description" content="The portfolio of John Doe, a BD-Korean Web Designer based in Seoul, South Korea." />
+	<meta name="keywords" content="john, doe, john doe, web design, web application development, websites, python, django, flask, full stack python developer, freelance, developer" />
+    <title>Personal Template Maker</title>
+    <link rel="stylesheet" href="{% static 'website/css/bootstrap.css' %}">
+    <link rel="shortcut icon" href="/media/images/template1/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-8 mx-auto mt-5">
+            <h1 class="text-center mb-3 sph2"><a href="{% url 'home' %}">Dashboard</a></h1>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-dismissible alert-{{ message.tags }}">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ message|safe }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <div class="card p-5 bg-card sptext">
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </div>
+    </div>
+    <h4 class="text-center mt-2 sptext">Designed and Devveloped by <a href="http://jhhemal.com" target="_blank"><img src="/media/images/logo.png" alt="Xebecware Software SOlution" height="20px"></a></h4>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

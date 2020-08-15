@@ -1,0 +1,31 @@
+{% extends 'website/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <p class="text-center">
+        <a href="{% url 'settings' %}" class="btn btn-info">Back to settings</a>
+        <a href="{% url 'interest-create' %}" class="btn btn-primary">Add Interest</a>
+        <a href="" class="btn btn-warning" target="_blank">View website</a>
+    </p>
+    {% if interests %}
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            {% for interest in interests %}
+                <tr>
+                    <td>{{ interest.title }}</td>
+                    <td class="text-center sptext">
+                        <a href="{% url 'interest-update' interest.id %}" class="btn btn-warning btn-sm">Update</a>
+                        <a href="#"" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+    <h2 class="text-center">Please Add some Interests</h2>
+        <a href="{% url 'interest-create' %}" class="btn btn-success mx-auto">Add Interest</a>
+        
+    {% endif %}
+{% endblock content %}

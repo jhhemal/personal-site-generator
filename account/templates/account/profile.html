@@ -1,0 +1,11 @@
+{% extends 'account/base.html' %}
+{% block content %}
+<div class="mx-auto text-center">
+    <p class="text-center">
+        <a class="btn btn-warning" href="{% url 'settings' %}">Site Settings</a>
+        <a class="btn btn-info" href="{% url 'website' request.user.username %}" target="_blank">Visit Website</a>
+        <a class="btn btn-danger" href="{% url 'logout' %}">Logout</a>
+    </p>
+</div>
+{% endblock content %}
+
