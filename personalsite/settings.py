@@ -27,7 +27,7 @@ SECRET_KEY = '996-g__d558d0b86p!q(5&6aswh@c$*wdt51)ee0070*^qpt*k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['psite-gen.herokuapp.com']
 
 
 # Application definition
