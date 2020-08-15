@@ -11,4 +11,5 @@
 8. Finally Run The Project `python manage.py runserver`
 
 ## Simple Demo
-![1](./media/images/template1/demo.png)
+![1](./media/images/demo.png)
+![2](./media/images/template1/demo.png)
