@@ -51,6 +51,7 @@ class RegisterForm(UserCreationForm):
         self.fields['password2'].widget = forms.PasswordInput(attrs={
             'placeholder' : "Re-Type Your Password"
         })
+        self.fields['dob'].required = False
 
 class LoginForm(AuthenticationForm):
     class Meta:
